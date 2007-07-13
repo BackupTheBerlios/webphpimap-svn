@@ -1,0 +1,20 @@
+div { float: left; width: 100%; overflow: hidden; }
+#main { width: 802px; height: 630px; border: 1px solid gray; overflow: hidden; }
+#menu div { width: 150px; }
+#sidebar { width: 250px; float: left; }
+#listcalendar { width: 250px; height: 200px; overflow-y: hidden; overflow-x: hidden; float: left; }
+#listcontact { width: 250px; height: 200px; overflow-y: scroll; overflow-x: hidden; float: left; }
+#listtodo { width: 250px; overflow-y: scroll; overflow-x: hidden; float: left; margin-bottom: 50px; }
+#details { float: right; width: 510px; height: 600px; border: 1px solid black; padding-left: 20px; padding-right: 20px; }
+#messenger { text-align: center; }
+td { text-align: center; vertical-align: middle; }
+#error { color: red; }
+
+
+#minical { width: 100%; height: 100%; }
+#minical .calnavi td { background-color: lightblue; font-weight: bold; }
+#minical .calweekdays td { }
+#minical .calweeklink { font-style: italic; }
+#minical .hasevent { font-weight: bold; background-color: #FF6633; }
+#minical .noevent { background-color: lightblue; }
+#minical .empty { background-color: white; }

@@ -1,0 +1,18 @@
+BEGIN:VCARD
+ADR;TYPE=work:;\n1090  Wien\, Vienna\nÖsterreich;Augasse 2-6 ;;;;
+CATEGORIES:Universität
+EMAIL:malexand@wu-wien.ac.at
+FN:Dr. Michael Alexander
+N:Alexander;Michael;;Dr.;
+ORG:Wirtschaftsuniversität Wien
+REV:2007-03-15T20:17:44Z
+TEL;TYPE=FAX;TYPE=WORK:+43 (1) 31336.746
+TEL;TYPE=CELL:0043 699.12283586
+TEL;TYPE=VOICE;TYPE=WORK:0043 1.31336.4467
+TITLE:Wissenschaftlicher Mitarbeiter
+UID:Yfm5xKPXyo
+URL:http://wirtschaftsuniversität wien
+VERSION:3.0
+X-EVOLUTION-FILE-AS:Alexander\, Michael
+END:VCARD
+

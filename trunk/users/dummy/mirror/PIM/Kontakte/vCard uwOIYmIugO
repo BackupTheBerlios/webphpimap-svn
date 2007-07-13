@@ -1,0 +1,16 @@
+BEGIN:VCARD
+ADR;TYPE=work:;\n1010  Wien\nAustria;Trattnerhof 1\, 5. Stock ;;;;
+CATEGORIES:Universität
+EMAIL:daniela.chikova@atkearney.com
+FN:Mag. Daniela Chikova
+N:Chikova;Daniela;;Mag.;
+ORG:A.T. Kearney GmbH
+REV:2007-03-15T20:17:44Z
+TEL;TYPE=FAX;TYPE=WORK:+43 1 535 79 67
+TEL;TYPE=CELL:+43 664 4600 410
+TEL;TYPE=VOICE;TYPE=WORK:+43 1 53 667 119
+UID:uwOIYmIugO
+VERSION:3.0
+X-EVOLUTION-FILE-AS:Chikova\, Daniela
+END:VCARD
+

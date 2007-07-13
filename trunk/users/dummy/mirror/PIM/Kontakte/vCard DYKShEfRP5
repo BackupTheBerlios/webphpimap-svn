@@ -1,0 +1,21 @@
+BEGIN:VCARD
+ADR;TYPE=work:P.O Box 11-126\,;\nNeuseeland;Wellington;;;;
+ADR;TYPE=home:;\nWellington\nNeuseeland;100 Kelburn Parade ;;;;
+CATEGORIES:Universität
+CLASS:PUBLIC
+EMAIL;TYPE=PREF:simone.anzboeck@aiesec.net
+EMAIL:simone.anzboeck@gmx.at
+FN:Simone Anzböck
+N:Anzböck;Simone;;;
+ORG:AIESEC New Zealand Inc.
+REV:2007-04-17T07:10:40Z
+TEL;TYPE=HOME;TYPE=VOICE:0064-21-02720233
+TEL;TYPE=CELL:+43 6502041846
+TEL;TYPE=VOICE;TYPE=WORK:0064-4-4996480
+TITLE:Director Human Resource & People Development
+UID:DYKShEfRP5
+URL:http://aiesec new zealand inc.
+VERSION:3.0
+X-EVOLUTION-FILE-AS:Anzböck\, Simone
+END:VCARD
+
