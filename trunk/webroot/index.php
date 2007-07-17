@@ -1,5 +1,5 @@
 <?
-
+#Kommentar, den ich mal testweise einchecke
 session_start();
 include("config.php");
 $d = opendir("back/inc");
