@@ -6,7 +6,7 @@ define("verboseMode",false);
 define("verboseHead",true);
 define("phPIMap","ok");
 define("secureDelimiter","*#####*");
-define("userdir","../users");
+define("userdir","users");
 
 // If this value is set (!=""), then just this user is allowed
 define("singleuser","");
