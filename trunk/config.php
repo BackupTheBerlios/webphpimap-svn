@@ -2,6 +2,7 @@
 
 $_SESSION["norefresh"] = false; // Prevents from refreshing IMAP-Resource if set to yes
 
+define("domain",getenv("SERVER_STRING"));
 define("verboseMode",false);
 define("verboseHead",true);
 define("phPIMap","ok");
