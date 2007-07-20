@@ -46,7 +46,7 @@ function analyseResource($folder,$type){
 }
 
 function append($text){
-     $GLOBALS["_OUT"] .= $text."\n";
+     $GLOBALS["stdOUT"] .= $text."\n";
 }
 
 function verbose($text){
