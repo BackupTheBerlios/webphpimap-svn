@@ -4,7 +4,7 @@ session_start();
 include("config.php");
 $d = opendir("function/inc");
 while($f=readdir($d))
-     if(str_replace(".","",$f)!="") require_once("function/inc/".$f);
+     if(str_replace(".","",$f)!="" && $f!=".svn") require_once("function/inc/".$f);
 
 include("function/modules/login.php");
 include(userdir."/".$_SESSION["user"]."/settings.php");
