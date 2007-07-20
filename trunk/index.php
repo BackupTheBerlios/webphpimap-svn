@@ -45,6 +45,6 @@ if(ajax==1) {
 } else
      include("function/main.php");
 
-echo $GLOBALS["_OUT"];
+echo $GLOBALS["stdOUT"];
 
 ?>
