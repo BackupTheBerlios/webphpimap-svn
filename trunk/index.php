@@ -1,5 +1,5 @@
 <?
-#Kommentar, den ich mal testweise einchecke
+#Kommentar, den ich mal testweise einchecke 2007-07-20
 session_start();
 include("config.php");
 $d = opendir("function/inc");
