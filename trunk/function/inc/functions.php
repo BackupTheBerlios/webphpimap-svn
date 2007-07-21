@@ -1,11 +1,13 @@
 <?
 
+################################################
+## Robert Schrenk, 2007, phPIMap              ##
+## This code is distributed under the GNU/GPL ##
+################################################
+
 if(phPIMap!="ok") die("Direct access to this location is not allowed");
 
-//include("functions_contact.php");
-//include("functions_calendar.php");
-//include("functions_todo.php");
-
+# Before PIM-Resources are downloaded from IMAP the mirror-dir is removed
 function emptyMirrorDir($fullpath){
      $d=@opendir($fullpath);
      while($file=@readdir($d)){
@@ -17,6 +19,7 @@ function emptyMirrorDir($fullpath){
      @rmdir($fullpath);
 }
 
+# After removing mirror-dir it must be renewed including parents
 function createMirrorDir($fullpath){
      //echo "Attempting to create ".$fullpath."<br />\n";
      $path = explode("/",$fullpath);
@@ -30,6 +33,7 @@ function createMirrorDir($fullpath){
      }
 }
 
+# Resources are analysed
 function analyseResource($folder,$type){
      switch($type){
           case "contact":
@@ -45,20 +49,24 @@ function analyseResource($folder,$type){
      }
 }
 
+# This function is used to append Output
 function append($text){
      $GLOBALS["stdOUT"] .= $text."\n";
 }
 
+# This function appends or echoes Errors and Notices
+# Have a look at config.php to switch it on/off
 function verbose($text){
      if(verboseMode=="true") append("<i>".$text."</i><br />\n");
      if(verboseHead=="true") echo "<i>".$text."</i><br />\n";
 }
-
 function verboseFail($text,$success){
      if($success) verbose($text);
      else echo "<span class=\"error\">".$text."</span>\n";
 }
 
+# This function is used to store the Resources-Tree as a String within a variable
+# The string is saved in a file below the user-dir and can be parsed fast
 function Array2String($Array) {
      if(!is_array($Array)) return null;
      $Return='';
@@ -73,9 +81,7 @@ function Array2String($Array) {
      return urlencode(substr($Return,0,-2));
 }
 
-// convert a string generated with Array2String() back to the original (multidimensional) array
-// usage: array String2Array ( string String)
-
+# This Function returns the Array which was stored as string
 function String2Array($String) {
      if($String=="") return null;
      $Return=array();
@@ -97,6 +103,7 @@ function String2Array($String) {
      return $Return;
 }
 
+# This function can filter Resources and returns an array with the filtered ones
 function filterResources($array,$field,$pattern,$comparator,$subselection){
      if($subselection==null) $subselection = @array_keys($array);
      $pattern = addslashes($pattern);
@@ -124,6 +131,8 @@ function filterResources($array,$field,$pattern,$comparator,$subselection){
      return $narray;
 }
 
+# This function merges two selections of items. You should not mix different PIM-Types
+# however, this would be possible
 function mergeSelections($selection1,$selection2){
      $foundsids[] = "zzz";
      for($i=0;$i<count($selection1);$i++){
@@ -139,6 +148,7 @@ function mergeSelections($selection1,$selection2){
      return $merger;
 }
 
+# This function returns the interesection of two arrays as new array
 function intersectSelections($selection1,$selection2){
      for($i=0;$i<count($selection1);$i++){
           $foundsids[] = $selection1[$i][internalid];
@@ -150,6 +160,7 @@ function intersectSelections($selection1,$selection2){
      return $intersection;
 }
 
+# This function sorts Resources
 function sortResources($array,$subselection,$field,$direction){
      if($subselection==null) $subselection = @array_keys($array);
      for($i=0;$i<count($subselection);$i++)
@@ -224,6 +235,10 @@ function readableTS($ts,$rettype){
      return $date[($rettype!="")?$rettype:$date];
 }
 
+# This function reads passed vars
+# First we check session, post, get and cookie-vars.
+# $pattern offers the possibility just to check several, e.g. 0110 would just
+# check post and get
 function RetrieveVar($Varname,$pattern){
      if($pattern[0]=="1" && isset($_SESSION[$Varname])): return $_SESSION[$Varname];
      elseif($pattern[1]=="1" && isset($_POST[$Varname])): return $_POST[$Varname];
@@ -231,6 +246,14 @@ function RetrieveVar($Varname,$pattern){
      elseif($pattern[3]=="1" && isset($_COOKIE[$Varname])): return $_COOKIE[$Varname];
      else: return false;
      endif;
+}
+
+# This replaces the values of a specific item in a template
+function replaceFields($tpl,$restype,$item){
+     $fields = $GLOBALS["fields"][$restype];
+     for($i=0;$i<count($fields);$i++)
+          $tpl = str_replace("~".$fields[$i]."~",$item[$fields[$i]],$tpl);
+     return $tpl;
 }
 
 ?>

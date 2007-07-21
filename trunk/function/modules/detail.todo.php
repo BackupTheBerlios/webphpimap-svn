@@ -1,8 +1,13 @@
 <?
 
+################################################
+## Robert Schrenk, 2007, phPIMap              ##
+## This code is distributed under the GNU/GPL ##
+################################################
+
 if(phPIMap!="ok") die("Direct access to this location is not allowed");
 
-$id = RetrieveVar("id","0110");
+$id = RetrieveVar("id","0111");
 $item = $GLOBALS["restree"]["todo"][$id];
 if($id=="" OR $item==""){
      append("<h1>Anstehende Aufgaben</h1>");
@@ -14,10 +19,9 @@ if($id=="" OR $item==""){
           append("<li><a href=\"?module=todo&id=".$item[internalid]."\">".$item["summary"]."</a></li>");
      }
 }else {
-     for($i=0;$i<count($fields["todo"]);$i++)
-          append("<div style=\"width: 25%; float: left;\">".$fields["todo"][$i]."</div>".
-                    "<div style=\"width: 74%; float: left;\">".$item[$fields["todo"][$i]]."&nbsp;</div>");
-
+     $tpl = file_get_contents(designroot."/display/item.todo.html");
+     $tpl = replaceFields($tpl,"todo",$item);
+     append($tpl);
 
 }
 

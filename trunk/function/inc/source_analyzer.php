@@ -1,12 +1,17 @@
 <?
 
+################################################
+## Robert Schrenk, 2007, phPIMap              ##
+## This code is distributed under the GNU/GPL ##
+################################################
+
 function sourceAnalyze($SOLVED_TEXT,$globals){
     $State = "app";
 
     $i = 0;
     $SearchStrings[$i++] = "~designroot~";              // 0
     $SearchStrings[$i++] = "~sessionid~";               // 1
-    $SearchStrings[$i++] = "~mainmodule~";              // 2
+    $SearchStrings[$i++] = "~main~";                    // 2
     $SearchStrings[$i++] = "~application~";             // 3
     $SearchStrings[$i++] = "~/application~";            // 4
     $SearchStrings[$i++] = "~ignore~";                  // 5
@@ -88,13 +93,13 @@ function sourceAnalyze($SOLVED_TEXT,$globals){
                  $itemamount++;
                  switch($Log[$LogAnz]){
                       case $SearchStrings[0]: // designroot
-                           $GLOBALS["stdOUT"] .= $GLOBALS["Header"]->Root;
+                           $GLOBALS["stdOUT"] .= designroot;
                       break;
                       case $SearchStrings[1]; // sessionid
                            $GLOBALS["stdOUT"] .= session_id();
                       break;
                       case $SearchStrings[2]: // mainmodule
-                           $GLOBALS["stdOUT"] .= "~mainpage~".$GLOBALS["inc_main"]."&State=main~/mainpage~";
+                           $GLOBALS["stdOUT"] .= "~mainpage~".inc_main."~/mainpage~";
                       break;
                       case $SearchStrings[3]: // application
                            $orig = $State;
@@ -107,7 +112,7 @@ function sourceAnalyze($SOLVED_TEXT,$globals){
                                     $_POST[$va[0]] = $va[1];
                                     if($va[0]=="State"): $State = $va[1]; endif;
                                }
-                               $app = $_POST["inc"];
+                               $app = $_POST["module"];
                            else:
                                $app = $Log[$LogAnz+1];
                            endif;
@@ -132,7 +137,7 @@ function sourceAnalyze($SOLVED_TEXT,$globals){
                                     $_ORIGS[$va[0]] = $_POST[$va[0]];
                                     $_POST[$va[0]] = $va[1];
                                     if($va[0]=="State"): $State = $va[1]; endif;
-                                    if($va[0]=="inc"): $app = $va[1]; endif;
+                                    if($va[0]=="module"): $app = $va[1]; endif;
                                }
                            else:
                                $app = $Log[$LogAnz+1];
@@ -153,7 +158,7 @@ function sourceAnalyze($SOLVED_TEXT,$globals){
                            $GLOBALS["stdOUT"] .=  domain;
                       break;
                  }
-                 // Hier knnen Operationen an stdOUT erfolgen. (ist in diesem Fall nur zustzliches Item)
+                 // Hier können Operationen an stdOUT erfolgen. (ist in diesem Fall nur zustzliches Item)
                  // Hier ist ignoring false
                  $GLOBALS["stdOUT"] = translateText($GLOBALS["stdOUT"]);
                  $GLOBALS["stdOUT"] = cloakURL($GLOBALS["stdOUT"]);
@@ -164,7 +169,7 @@ function sourceAnalyze($SOLVED_TEXT,$globals){
              $SOLVED_TEXT .= $GLOBALS["stdOUT"];
              $LogAnz++;
         }
-        if(RetrieveVar("CASCADE")):
+        if(RetrieveVar("CASCADE","0111")):
               echo "#".($GLOBALS["CASC_AMNT"]++).":<hr>\n\n".$SOLVED_TEXT."<br>Itemcount: ".$itemamount."<br>\n\n<hr>\n\n";
         endif;
     }
@@ -242,7 +247,7 @@ function cloakURL($SOLVED_TEXT){
 
 function validateText($SOLVED_TEXT){
     if(strpos($SOLVED_TEXT,"</head>")>0 OR strpos($SOLVED_TEXT,"<body")>0):
-        // Versuch Validitt zu verbessern
+        // Versuch Validität zu verbessern
 
         $stags = Array("<script","<link","<style","<object");
         $etags = Array("</script>","</link>","</style>","</object>");
