@@ -133,6 +133,12 @@ switch($_SESSION["calrange"]){
      break;
      case "day":
           append("<h1>Termine am ".readableTS($_SESSION["calorientation"],"date")."</h1>");
+          $base_tpl = file_get_contents(designroot."/display/item.calendar.list.html");
+          for($i=0;$i<count($selection);$i++){
+               append(replaceFields($base_tpl,"calendar",$selection[$i]));
+          }
+
+          /*
           append("<table border=\"0\" width=\"100%\">\n");
           for($i=0;$i<count($selection);$i++){
                $item = $selection[$i];
@@ -144,6 +150,7 @@ switch($_SESSION["calrange"]){
                append("</tr>");
           }
           append("</table>");
+          */
      break;
 }
 

@@ -8,8 +8,7 @@
 session_start();
 # Read necessary configuration
 include("config.php");
-# Includes automatically all files in directory phproot."/inc"
-# These files contain several functions
+# Include Files of phproot."/inc"
 $d = opendir(phproot."/inc");
 while($f=readdir($d))
      if(str_replace(".","",$f)!="" && $f!=".svn") require_once(phproot."/inc/".$f);

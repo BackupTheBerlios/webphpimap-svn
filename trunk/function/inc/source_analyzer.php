@@ -19,6 +19,8 @@ function sourceAnalyze($SOLVED_TEXT,$globals){
     $SearchStrings[$i++] = "~mainpage~";                // 7
     $SearchStrings[$i++] = "~/mainpage~";               // 8
     $SearchStrings[$i++] = "~domain~";                  // 9
+    $SearchStrings[$i++] = "~function~";                // 10
+    $SearchStrings[$i++] = "~/function~";               // 11
 
     $itemamount = 1;
     while($itemamount>0) {
@@ -156,6 +158,13 @@ function sourceAnalyze($SOLVED_TEXT,$globals){
                       break;
                       case $SearchStrings[9]: // domain
                            $GLOBALS["stdOUT"] .=  domain;
+                      break;
+                      case $SearchStrings[10]: // function
+                           $command = $Log[$LogAnz+1];
+                           $command = explode("|",$command);
+                           eval("\$sol = ".$command[0]."(".$command[1].");");
+                           append($sol);
+                           $LogAnz = $LogAnz+1;
                       break;
                  }
                  // Hier können Operationen an stdOUT erfolgen. (ist in diesem Fall nur zustzliches Item)
