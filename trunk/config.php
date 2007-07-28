@@ -35,7 +35,6 @@ $fields["todo"] = Array("pimfile",internalid,"uid","summary","due");
 $fields["calendar"] = Array("pimfile",internalid,"uid","summary","from","to");
 $fields["contact"] = Array("pimfile",internalid,"uid","surname","firstname","street","zip","city","country","telephone","mobilephone","cellphone","fax","email","birthday","url","title","organization","note");
 
-
 define("mirror",userdir."/".$_SESSION["user"]."/mirror");
 define("restree",mirror."/restree.php");
 
@@ -58,5 +57,8 @@ $GLOBALS["_MODULES"]["login"][1] = modulesroot."/mod.login.php";
 
 $GLOBALS["_MODULES"]["sync"][0] = "Sync";
 $GLOBALS["_MODULES"]["sync"][1] = modulesroot."/mod.sync.php";
+
+$GLOBALS["_MODULES"]["settings"][0] = "Settings";
+$GLOBALS["_MODULES"]["settings"][1] = modulesroot."/mod.settings.php";
 
 ?>

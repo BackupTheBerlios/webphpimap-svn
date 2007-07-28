@@ -1,0 +1,68 @@
+<form action="?module=settings" method="post" enctype="multipart/form-data">
+     <input type="hidden" id="settings_form" name="settings_form" value="1">
+     <table border="0" width="100%">
+          <tr>
+               <td>IMAP Host</td>
+               <td><input type="text" name="imap_host" id="imap_host" value="~imap_host~"></td>
+          </tr>
+          <tr>
+               <td colspan="2">URL or IP of your IMAP-Host</td>
+          </tr>
+          <tr>
+               <td>IMAP Port</td>
+               <td><input type="text" name="imap_port" id="imap_port" value="~imap_port~" size="4"></td>
+          </tr>
+          <tr>
+               <td colspan="2">Port of your IMAP-Host, usually 143</td>
+          </tr>
+          <tr>
+               <td>Username</td>
+               <td><input type="text" name="imap_user" id="imap_user" value="~imap_user~"></td>
+          </tr>
+          <tr>
+               <td colspan="2">This is the Username of your IMAP Account and 
+                   will be your Login for phPIMap</td>
+          </tr>
+          <tr>
+               <td>Password (phPIMap)</td>
+               <td><input type="password" name="phpimap_pw" id="phpimap_pw" value="~phpimap_pw~"></td>
+          </tr>
+          <tr>
+               <td colspan="2">This is the Password of your IMAP Account. <b>Attention: This password
+                   will be encrypted.</b></td>
+          </tr>
+          <tr>
+               <td>Password (IMAP)</td>
+               <td><input type="password" name="imap_pw" id="imap_pw" value="~imap_pw~"></td>
+          </tr>
+          <tr>
+               <td colspan="2">This is the Password of your IMAP Account. <b>Attention: This password
+                   can not be encrypted due to technical reasons.</b> If you leave
+                   this blank your Password for phPIMap-Login may be used.</td>
+          </tr>
+          <tr>
+               <td>Todo IMAP Resource</td>
+               <td><input type="text" name="imap_todo" id="imap_todo" value="~imap_todo~"></td>
+          </tr>
+          <tr>
+               <td colspan="2">IMAP Folder(s) containing Todos. Seperate them with spaces.</td>
+          </tr>
+          <tr>
+               <td>Calendar IMAP Resource</td>
+               <td><input type="text" name="imap_calendar" id="imap_calendar" value="~imap_calendar~"></td>
+          </tr>
+          <tr>
+               <td colspan="2">IMAP Folder(s) containing Events. Seperate them with spaces.</td>
+          </tr>
+          <tr>
+               <td>Contact IMAP Resource</td>
+               <td><input type="text" name="imap_contact" id="imap_contact" value="~imap_contact~"></td>
+          </tr>
+          <tr>
+               <td colspan="2">IMAP Folder(s) containing Contacts. Seperate them with spaces.</td>
+          </tr>
+          <tr>
+               <td colspan="2"><input type="submit" value="Speichern"></td>
+          </tr>
+     </table>
+</form>
