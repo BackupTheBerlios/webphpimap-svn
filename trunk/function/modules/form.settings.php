@@ -1,6 +1,10 @@
 <?
 
-$tpl = file_get_contents(designroot."/display/form.settings.html");
+if($_GET["open"]=="2")
+     $tpl = file_get_contents(designroot."/display/form.settings.folders.html");
+else
+     $tpl = file_get_contents(designroot."/display/form.settings.html");
+
 $tpl = str_replace("~imap_host~",imap_host,$tpl);
 $tpl = str_replace("~imap_port~",imap_port,$tpl);
 $tpl = str_replace("~imap_user~",imap_user,$tpl);
