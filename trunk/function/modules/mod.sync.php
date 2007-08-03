@@ -15,7 +15,8 @@ append("Opening PIMBox on ".$pimbox."<br />");
 
 for($i=0;$i<count($types);$i++)
      for($z=0;$z<count($resources[$types[$i]]);$z++){
-          $box[$types[$i]][$z] = imap_open($pimbox.$resources[$types[$i]][$z],imap_user,imap_pw) or die($pimbox.$resources[$types[$i]][$z]);
+          append("Opening SubBox '".$pimbox.$resources[$types[$i]][$z]."'");
+          $box[$types[$i]][$z] = imap_open($pimbox.$resources[$types[$i]][$z],imap_user,imap_pw) or die("Could not open: ".$pimbox.$resources[$types[$i]][$z]);
           append("Opened PIMBox for '".$types[$i]."/#".$z." as '".$pimbox.$resources[$types[$i]][$z]."'<br />");
      }
 
@@ -44,8 +45,6 @@ for($i=0;$i<count($types);$i++){
      }
 }
 
-$f = fopen(restree,"w");
-fputs($f,"<?\n\n\$GLOBALS[\"restree\"] = String2Array(\"".Array2String($GLOBALS["restree"])."\");\n\n?>");
-fclose($f);
+file_put_contents(restree,"<?\n\n\$GLOBALS[\"restree\"] = String2Array(\"".Array2String($GLOBALS["restree"])."\");\n\n?>");
 
 ?>
