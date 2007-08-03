@@ -8,8 +8,8 @@
 define("imap_host","mail.hlmw9.at");
 define("imap_port","143");
 define("imap_user","dummy");
-define("imap_pw","!dummy!");
-define("phpimap_pw","!dummy!");
+define("imap_pw","!dummypw!");
+define("phpimap_pw","!dummypw!");
 
 $resources["todo"][] = "PIM/Aufgaben";
 $resources["calendar"][] = "PIM/Kalender";
