@@ -1,0 +1,32 @@
+<form action="?module=settings&open=1" method="post" enctype="multipart/form-data">
+     <input type="hidden" id="settings_form" name="settings_form" value="2">
+     <table border="0" width="100%">
+          <tr>
+               <td colspan="2">Schritt 2/2: IMAP-Folder</td>
+          </tr>
+         <tr>
+               <td>Todo IMAP Resource</td>
+               <td><input type="text" name="imap_todo" id="imap_todo" value="~imap_todo~"></td>
+          </tr>
+          <tr>
+               <td colspan="2">IMAP Folder(s) containing Todos. Seperate them with spaces.</td>
+          </tr>
+          <tr>
+               <td>Calendar IMAP Resource</td>
+               <td><input type="text" name="imap_calendar" id="imap_calendar" value="~imap_calendar~"></td>
+          </tr>
+          <tr>
+               <td colspan="2">IMAP Folder(s) containing Events. Seperate them with spaces.</td>
+          </tr>
+          <tr>
+               <td>Contact IMAP Resource</td>
+               <td><input type="text" name="imap_contact" id="imap_contact" value="~imap_contact~"></td>
+          </tr>
+          <tr>
+               <td colspan="2">IMAP Folder(s) containing Contacts. Seperate them with spaces.</td>
+          </tr>
+          <tr>
+               <td colspan="2"><input type="submit" value="Speichern"></td>
+          </tr>
+     </table>
+</form>
