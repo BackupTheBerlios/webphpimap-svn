@@ -11,7 +11,7 @@ function analyseResourceCalendar($folder){
      verbose("Analyzing Resources in Folder '".$folder."'");
      $d = opendir($folder);
      while($f=readdir($d))
-          if($f!="." && $f!=".."){
+          if($f!="." && $f!=".." && str_replace(".svn","",$f)!=""){
                $pimfile = str_replace("//","/",$folder."/".$f);
                $fp = fopen($pimfile,"r");
                $c = "";

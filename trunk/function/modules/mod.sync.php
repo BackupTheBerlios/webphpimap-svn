@@ -12,6 +12,8 @@ append("<h1>Preparing Synchronisation</h1>");
 unset($GLOBALS["restree"]);
 $pimbox = "{".imap_host.":".imap_port."/imap}";
 append("Opening PIMBox on ".$pimbox."<br />");
+$resources = $GLOBALS["resources"];
+$types = $GLOBALS["types"];
 
 for($i=0;$i<count($types);$i++)
      for($z=0;$z<count($resources[$types[$i]]);$z++){
